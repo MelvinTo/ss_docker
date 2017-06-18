@@ -63,11 +63,11 @@ read -r -d '' SERVER_CONFIG << EOM
 
 EOM
 
-cat $SERVER_CONFIG
+echo $SERVER_CONFIG
 
 echo "QR Code for server config"
 QR_BINARY=/usr/bin/qrcode-terminal
-$QR_BINARY '$SERVER_CONFIG'
+$QR_BINARY "$SERVER_CONFIG"
 
 # this is just to ensure this docker container will keep running
 tail -f /dev/null
