@@ -65,3 +65,6 @@ EOF
 
 QR_BINARY=/usr/bin/qrcode-terminal
 $QR_BINARY $SERVER_CONFIG
+
+# this is just to ensure this docker container will keep running
+tail -f /dev/null
