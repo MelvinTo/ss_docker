@@ -29,11 +29,11 @@ docker run -d -p 9900:9900/udp ss_kcp -k ss123456 -s yourvpc.com -p 9900
 
 ## Default parameters
 * KCP
-** method: fast2
-** send window: 1024
-** recv window: 1024
-** MTU: 1400
-** port: 8900
+  * method: fast2
+  * send window: 1024
+  * recv window: 1024
+  * MTU: 1400
+  * port: 8900
 * Shadowsocks
-** port: 8899
-** method: aes-256-cfb
+  * port: 8899
+  * method: aes-256-cfb
