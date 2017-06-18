@@ -53,7 +53,7 @@ ss_tunnel -s 123.123.123.123 -p 8899 -l 8855 -k ss123456 -m aes-256-cfb -u -L 8.
 # kcp
 client -r <your_vpc_ip>:8900 -l ":8899" -mode fast2
 
-# ss redirection or ss client
+# ss redirection or ss client, both connect local kcp forwarding port
 ss_redir -s 127.0.0.1 -p 8899 -l 8820 -b 0.0.0.0 -k ss123456 -m aes-256-cfb
 ss_client -s 127.0.0.1 -p 8899 -l 8820 -b 0.0.0.0 -k ss123456 -m aes-256-cfb
 
