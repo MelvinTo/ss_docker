@@ -47,23 +47,17 @@ $KCP_BINARY -mtu $KCP_MTU -sndwnd $KCP_SEND_WINDOW -rcvwnd $KCP_RECV_WINDOW -mod
 
 read -r -d '' SERVER_CONFIG << EOM
 {
-	"from": "firewalla",
-	"server_port": $SS_PORT,
 	"password":"$SS_PASSWORD",
-	"timeout":1000,
-	"method":"aes-256-cfb",
-	"server": "$PUBLIC_SERVER",
 	"kcp_enabled": true,
-	"kcp_mode": "$KCP_MODE",
-	"kcp_send_window": $KCP_SEND_WINDOW,
-	"kcp_recv_window": $KCP_RECV_WINDOW,
-	"kcp_server": "$PUBLIC_SERVER",
-	"kcp_server_port": "$KCP_PORT"
+	"mode": "$KCP_MODE",
+	"sndwnd": $KCP_SEND_WINDOW,
+	"server": "$PUBLIC_SERVER",
+	"port": "$KCP_PORT"
 }
 
 EOM
 
-echo $SERVER_CONFIG
+echo "$SERVER_CONFIG"
 
 echo "QR Code for server config"
 QR_BINARY=/usr/bin/qrcode-terminal
