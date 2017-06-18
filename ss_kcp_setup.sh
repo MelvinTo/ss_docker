@@ -7,7 +7,7 @@ SS_PORT=8899
 SS_METHOD=aes-256-cfb
 SS_PASSWORD=`pwgen 8 1`
 
-KCP_BINARY=/usr/bin/kcp_server
+KCP_BINARY=/usr/bin/kcptun_server
 KCP_PORT=8900
 KCP_MODE=fast2
 KCP_MTU=1400
