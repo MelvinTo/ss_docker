@@ -10,12 +10,16 @@ This docker image will use pre-compiled shadowsocks-libev from ubuntu apt repo, 
 ````
 docker build . -t <image_name>
 docker run -d -p 8900:8900/udp <image_name> -k <your password> -s <your_vpc_public_hostname_or_ip>
+docker logs <container_id>
 ````
 
 ## Example
 ````
 docker build . -t ss_kcp
 docker run -d -p 8900:8900/udp ss_kcp -k ss123456 -s yourvpc.com
+
+# more ss and kcp configurations can be found in console output
+docker logs d17565c47321
 
 # use another port other than 8900
 docker run -d -p 9900:9900/udp ss_kcp -k ss123456 -s yourvpc.com -p 9900
