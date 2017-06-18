@@ -42,7 +42,7 @@ shift # past argument or value
 done
 
 
-$SS_BINARY -s $SS_IP -p $SS_PORT -m $SS_METHOD -k $SS_PASSWORD -v &>/var/log/ss.log &
+$SS_BINARY -u -s $SS_IP -p $SS_PORT -m $SS_METHOD -k $SS_PASSWORD -v &>/var/log/ss.log &
 $KCP_BINARY -mtu $KCP_MTU -sndwnd $KCP_SEND_WINDOW -rcvwnd $KCP_RECV_WINDOW -mode $KCP_MODE -t "127.0.0.1:$SS_PORT" -l ":$KCP_PORT" --log /var/log/kcp.log &
 
 read -r -d '' SERVER_CONFIG << EOM
