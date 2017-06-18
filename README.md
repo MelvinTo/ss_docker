@@ -25,6 +25,9 @@ docker logs d17565c47321
 docker run -d -p 9900:9900/udp ss_kcp -k ss123456 -s yourvpc.com -p 9900
 
 # if -k (password) is not specified, random 8-charactor password will be generated and print in console of the docker container
+
+# or you can build docker image by yourself
+docker build .
 ````
 
 ## Default parameters
