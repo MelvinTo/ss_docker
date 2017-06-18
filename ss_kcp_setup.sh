@@ -45,7 +45,7 @@ done
 $SS_BINARY -s $SS_IP -p $SS_PORT -m $SS_METHOD -k $SS_PASSWORD -v &>/var/log/ss.log &
 $KCP_BINARY -mtu $KCP_MTU -sndwnd $KCP_SEND_WINDOW -rcvwnd $KCP_RECV_WINDOW -mode $KCP_MODE -t "127.0.0.1:$SS_PORT" -l ":$KCP_PORT" --log /var/log/kcp.log &
 
-SERVER_CONFIG= <<EOF
+read -r -d '' SERVER_CONFIG << EOM
 {
 	"from": "firewalla",
 	"server_port": $SS_PORT,
@@ -61,10 +61,13 @@ SERVER_CONFIG= <<EOF
 	"kcp_server_port": "$KCP_PORT"
 }
 
-EOF
+EOM
 
+cat $SERVER_CONFIG
+
+echo "QR Code for server config"
 QR_BINARY=/usr/bin/qrcode-terminal
-$QR_BINARY $SERVER_CONFIG
+$QR_BINARY '$SERVER_CONFIG'
 
 # this is just to ensure this docker container will keep running
 tail -f /dev/null
