@@ -18,16 +18,21 @@ docker logs <container_id>
 # 8899 is ss udp port (8899 is used for replaying dns query via ss-tunnel)
 docker run -d -p 8900:8900/udp -p 8899:8899/udp melvinto/ss_kcptun:latest -k ss123456 -s 123.123.123.123
 
+
 # more ss and kcp configurations can be found in console output
 docker logs d17565c47321
 
+
 # use another port other than 8900, 8899
 docker run -d -p 9900:9900/udp -p 9990:9990/udp ss_kcp -k ss123456 -s yourvpc.com -p 9900 -P 9990
-f
+
+
 # if -k (password) is not specified, random 8-charactor password will be generated and print in console of the docker container
+
 
 # mount log folder to host (/var/log @ docker container => ~/log @ host)
 docker run -d -p 8900:8900/udp -p 8899:8899/udp ss_kcp -k ss123456 -s yourvpc.com -v ~/log:/var/log
+
 
 # or you can build docker image by yourself
 docker build .
