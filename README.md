@@ -8,8 +8,7 @@ This docker image will use pre-compiled shadowsocks-libev from ubuntu apt repo, 
 
 # How to use this docker image
 ````
-docker pull melvinto/ss_kcptun
-docker run -d -p 8900:8900/udp -p 8899:8899/udp <image_name> [-k <your password>] -s <your_vpc_public_hostname_or_ip> [-p <kcp_port>] [-P <ss_port>]
+docker run -d -p 8900:8900/udp -p 8899:8899/udp melvinto/ss_kcptun:latest -k <password> -s <your_vpc_public_ip_or_hostname> [-p <kcp_port>] [-P <ss_port>] [-v ~/log:/var/log/]
 docker logs <container_id>
 ````
 
@@ -17,7 +16,7 @@ docker logs <container_id>
 ````
 # 8900 is kcp port
 # 8899 is ss udp port (8899 is used for replaying dns query via ss-tunnel)
-docker run -d -p 8900:8900/udp -p 8899:8899/udp ss_kcp -k ss123456 -s yourvpc.com
+docker run -d -p 8900:8900/udp -p 8899:8899/udp melvinto/ss_kcptun:latest -k ss123456 -s 123.123.123.123
 
 # more ss and kcp configurations can be found in console output
 docker logs d17565c47321
