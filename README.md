@@ -8,8 +8,7 @@ This docker image will use pre-compiled shadowsocks-libev from ubuntu apt repo, 
 
 # How to use this docker image
 ````
-docker run -d -p 8900:8900/udp -p 8899:8899/udp melvinto/ss_kcptun:latest -k <password> -s <your_vpc_public_ip_or_hostname> [-p <kcp_port>] [-P <ss_port>] [-v ~/log:/var/log/]
-docker logs <container_id>
+docker run -d -p 8900:8900/udp -p 8899:8899/udp melvinto/ss_kcptun:latest -k <password> -s <your_vpc_public_ip_or_hostname> 
 ````
 
 ## More Examples
